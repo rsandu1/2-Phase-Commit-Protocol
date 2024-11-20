@@ -16,6 +16,9 @@ class Participant:
             f.write(str(balance))
 
     def prepare(self, change):
+        # if str(self.account_file) == "account_A.txt":
+        #     print("Node-2: Simulating crash before responding to coordinator.")
+        #     time.sleep(20)
         balance = self.read_balance()
         if balance + change >= 0:  # Check feasibility
             self.temp_balance = balance + change
@@ -24,6 +27,9 @@ class Participant:
             return "FAIL"
 
     def commit(self):
+        # if str(self.account_file) == "account_A.txt":
+        #     print("Node-2: Simulating crash before responding to coordinator.")
+        #     time.sleep(20)
         if self.temp_balance is not None:
             self.write_balance(self.temp_balance)
             self.temp_balance = None

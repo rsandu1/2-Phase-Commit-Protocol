@@ -46,7 +46,6 @@ def start_coordinator(participants, port):
     coordinator = Coordinator(participants)
     server = SimpleXMLRPCServer(("localhost", port))
     server.register_instance(coordinator)
-    server.register_function(coordinator.query_balance, "query_balance")
     print(f"Coordinator RPC server running on port {port}")
     server.serve_forever()
 
