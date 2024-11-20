@@ -9,7 +9,9 @@ def client_transaction():
     print("Transaction 1:", result)
 
     # Transaction 2: Add 20% bonus to A and same amount to B
-    changes = [200, 200]  # Bonus for both accounts
+    account_A_balance = coordinator.query_balance("http://localhost:8002")
+    bonus = int(0.2 * account_A_balance)  # Calculate 20% bonus
+    changes = [bonus, bonus]  # Bonus for both accounts
     result = coordinator.perform_transaction(changes)
     print("Transaction 2:", result)
 

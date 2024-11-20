@@ -7,6 +7,7 @@ class Participant:
         self.temp_balance = None  # Used for prepare phase
 
     def read_balance(self):
+        """Read the current balance from the account file."""
         with open(self.account_file, 'r') as f:
             return int(f.read())
 
